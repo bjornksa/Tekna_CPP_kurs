@@ -6,14 +6,17 @@ struct Food {
     string where;
 };
 
+// A)
 bool operator<(const Food& lhs, const Food& rhs){
     return lhs.price < rhs.price;
 }
 
+// B)
 void addPrice(map<string, set<Food>> &db, Food fp){
     db[fp.name].insert(fp);
 }
 
+// C)
 void printAllPrices(const map<string, set<Food>> &db){
     for (auto it = db.begin(); it != db.end(); ++it){
         cout << it->first << ":" << endl;
@@ -24,6 +27,7 @@ void printAllPrices(const map<string, set<Food>> &db){
     }
 }
 
+// D)
 void bestPrice(const map<string, set<Food>> & db, string name){
     auto it = db.find(name);
     if (it == db.end()){

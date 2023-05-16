@@ -23,11 +23,17 @@ vector<Obs> readFile(string filename){
     int y;
     string line;
 
+    // Metode 1: Med getline
     while(getline(inFile, line)){
         stringstream ss{line};
         ss >> x >> y;
+        if (x == -1){
+            break;
+        }
+        observations.push_back(Obs{x, y});
     }
 
+    // Metode 2: Leser ord for ord med inputstøm
     // while (inFile >> x >> y){
     //     if (x == -1){
     //         break;

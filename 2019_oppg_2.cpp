@@ -7,24 +7,28 @@ public:
     double y;
     Vector2d(double x, double y) : x{x}, y{y} {}
 
+    // B)
     double length() const {
         return sqrt(x*x + y*y);
     }
 
+    // D)
     Vector2d operator*(double k) const{
         return Vector2d{ this->x * k, this->y * k};
     }
 };
 
+// C)
 Vector2d operator+(const Vector2d & lhs, const Vector2d & rhs){
     return Vector2d{lhs.x + rhs.x, lhs.y + rhs.y};
 }
 
-
+// F)
 ostream & operator<<(ostream & os, const Vector2d & v){
     return os << "[ " << v.x << ", " << v.y << "]";
 }
 
+// G)
 Vector2d vectorSum(const vector<Vector2d> & vectors){
     Vector2d sumVector{0, 0};
     for (auto v : vectors){
@@ -33,6 +37,7 @@ Vector2d vectorSum(const vector<Vector2d> & vectors){
     return sumVector;
 }
 
+// H)
 void trackStats(const vector<Vector2d> & track){
     double length = 0;
     double maxSpeed = 0;
